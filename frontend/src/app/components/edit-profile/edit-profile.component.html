@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="fname" 
+            placeholder="First Name" 
+            name="fname" 
+            formControlName="fname"
+        >
+    </div>
+    <div class="form-group mb-3">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="lname" 
+            placeholder="Last Name"
+            name="lname" 
+            formControlName="lname"
+        >
+    </div>
+    <div class="form-group mb-3">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="key" 
+            placeholder="Encryption Key"
+            name="key" 
+            formControlName="key"
+        >
+        <button type="button" class="btn btn-secondary" (click)="generateKey()" style="margin-top: 10px">Generate</button>
+    </div>
+    <button type="submit" class="btn btn-warning" [disabled]="!form.valid">
+        Save
+    </button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="onCancel()">
+        Cancel
+    </button>
+</form>

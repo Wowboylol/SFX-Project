@@ -1,0 +1,21 @@
+{
+  "name": "secure-file-exchange",
+  "version": "1.0.0",
+  "description": "CMPT 372 SFU project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "formidable": "^2.1.1",
+    "md5": "^2.3.0",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.2",
+    "node-mailjet": "^6.0.2"
+  }
+}

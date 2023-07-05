@@ -1,0 +1,88 @@
+<section class="list-group-item list-group-item-action clearfix">
+    <aside>
+        <h4>{{file.name}}</h4>
+        <p>
+            <i *ngIf="file.downloaded" class="bi bi-check" id="downloaded"></i>
+            <i *ngIf="!file.downloaded" class="bi bi-x" id="n-downloaded"></i>
+            &nbsp;{{(file.downloaded ? "Downloaded" : "Not downloaded")}}
+        </p>
+    </aside>
+    <div>
+        <button (click)="onDownload()" type="button" class="btn btn-secondary me-2"><i class="bi bi-download"></i> Download</button>
+        <button 
+            type="button" 
+            class="btn btn-warning me-2"
+            data-bs-toggle="modal" 
+            attr.data-bs-target="#File-{{file._id}}">
+            <i class="bi bi-share-fill"></i> Share
+        </button>
+        <button 
+            type="button" 
+            class="btn btn-danger"
+            data-bs-toggle="modal" 
+            attr.data-bs-target="#Delete-{{file._id}}">
+            <i class="bi bi-trash-fill"></i> Delete</button>
+    </div>
+</section>
+
+<!-- Share file modal -->
+<section class="modal fade" id="File-{{file._id}}" tabindex="-1">
+    <article class="modal-dialog">
+        <aside class="modal-content">
+            <header class="modal-header">
+                <h5 class="modal-title">Share File</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </header>
+            <main class="modal-body">
+                <p>Enter the email of the user you wish to share this file to:</p>
+                <form class="row">
+                    <fieldset class="col-sm-12">
+                        <input 
+                            type="email" 
+                            [ngClass]="{'form-control':true, 'is-invalid':(errorMessage != null && errorMessage != '')}" 
+                            (change)="onChange()" #email>
+                        <footer class="invalid-feedback">{{errorMessage}}</footer>
+                    </fieldset>
+                </form>
+                <aside class="d-flex justify-content-center mt-3" *ngIf="isSearching">
+                    <app-loading-spinner></app-loading-spinner>
+                </aside>
+            </main>
+            <footer class="modal-footer">
+                <button 
+                    type="button" 
+                    [ngClass]="{'btn btn-warning':true, 'disabled':(isSearching || errorMessage != null)}"
+                    data-bs-dismiss="modal" 
+                    (click)="onShare()">
+                    <i class="bi bi-share-fill"></i> Share
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x"></i> Cancel</button>
+            </footer>
+        </aside>
+    </article>
+</section>
+
+<!-- Delete file modal -->
+<section class="modal fade" id="Delete-{{file._id}}" tabindex="-1">
+    <article class="modal-dialog">
+        <aside class="modal-content">
+            <header class="modal-header">
+                <h5 class="modal-title">Delete File</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </header>
+            <main class="modal-body">
+                <p>Are you sure you want to delete this file?</p>
+            </main>
+            <footer class="modal-footer">
+                <button 
+                    type="button" 
+                    class="btn btn-danger" 
+                    data-bs-dismiss="modal"
+                    (click)="onDelete()">
+                    <i class="bi bi-trash-fill"></i> Delete
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x"></i> Cancel</button>
+            </footer>
+        </aside>
+    </article>
+</section>

@@ -1,0 +1,9 @@
+#login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    position: relative;
+    left: calc(50vw - 160px);
+    top: 35vh;
+}

@@ -1,0 +1,49 @@
+<div class="row">
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmitRegister()" class="col-xs-12 col-md-6 offset-md-3">
+    <h3 class="mb-3">Register</h3>
+    <div class="form-group mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input [ngClass]="{'invalid-input': registrationForm.controls.email.touched && registrationForm.controls.email.invalid} " id="email" class="form-control" type="email" formControlName="email" placeholder="client@mail.com" required>
+        <div class="form-text">
+            <app-field-error [error]="getAnError(registrationForm.controls.email.errors)" *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched"></app-field-error>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="fname" class="form-label">First Name</label>
+        <input [ngClass]="{'invalid-input': registrationForm.controls.fname.touched && registrationForm.controls.fname.invalid}" id="fname" class="form-control" type="text" formControlName="fname" placeholder="Alex" required>
+        <div class="form-text">
+            <app-field-error [error]="getAnError(registrationForm.controls.fname.errors)" *ngIf="registrationForm.controls.fname.invalid && registrationForm.controls.fname.touched"></app-field-error>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="lname" class="form-label">Last Name</label>
+        <input [ngClass]="{'invalid-input': registrationForm.controls.lname.touched && registrationForm.controls.lname.invalid}" id="lname" class="form-control" type="text" formControlName="lname" placeholder="Doe" required>
+        <div class="form-text">
+            <app-field-error [error]="getAnError(registrationForm.controls.lname.errors)" *ngIf="registrationForm.controls.lname.invalid && registrationForm.controls.lname.touched"></app-field-error>
+        </div>
+    </div>
+    
+    <div class="form-group mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input [ngClass]="{'invalid-input': registrationForm.controls.password.touched && registrationForm.controls.password.invalid}" id="password" class="form-control" type="password" formControlName="password" placeholder="Password" required>
+        <div class="form-text">
+            <app-field-error [error]="getAnError(registrationForm.controls.password.errors)" *ngIf="registrationForm.controls.password.invalid && registrationForm.controls.password.touched"></app-field-error>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="passwordConfirmation" class="form-label">Confirm Password</label>
+        <input [ngClass]="{'invalid-input': registrationForm.controls.passwordConfirmation.touched && registrationForm.controls.passwordConfirmation.invalid}" id="passwordConfirmation" class="form-control" type="password" formControlName="passwordConfirmation" placeholder="Same Password">
+        <div class="form-text">
+            <app-field-error [error]="getAnError(registrationForm.controls.passwordConfirmation.errors)" *ngIf="registrationForm.controls.passwordConfirmation.invalid && registrationForm.controls.passwordConfirmation.touched"></app-field-error>
+
+        </div>
+    </div>
+    <div class="position-absolute start-50 translate-middle-x">
+    <a class="btn btn-link" routerLink="/auth" style="margin-bottom: 10px">Already have an account? Login.</a><br>
+    <button [disabled]="waitingForResponse || registrationForm.invalid && registrationForm.touched" type="submit" class="btn btn-warning position-absolute start-50 translate-middle-x">Submit</button>
+    </div>
+</form>
+</div>

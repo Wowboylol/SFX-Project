@@ -1,0 +1,22 @@
+<button id="edit_btn" class="btn btn-warning" (click)="onEdit()"><i class="bi bi-pencil"></i> Edit</button>
+<h2 class="mb-3">Profile</h2>
+<hr>
+
+<form>
+    <fieldset>
+        <label class="fw-bold" for="email">Email:</label>
+        <input type="text" class="form-control" [value]="user.email" disabled readonly>
+    </fieldset>
+    <fieldset class="mt-3">
+        <label class="fw-bold" for="first-name">First name:</label>
+        <input type="text" class="form-control" [value]="user.firstName" disabled readonly>
+    </fieldset>
+    <fieldset class="mt-3">
+        <label class="fw-bold" for="last-name">Last name:</label>
+        <input type="text" class="form-control" [value]="user.lastName" disabled readonly>
+    </fieldset>
+    <fieldset class="mt-3">
+        <label class="fw-bold" for="encryption-key">Encryption Key:</label>
+        <input type="text" [ngClass]="{'form-control':true, 'is-invalid':user.key == ''}" [value]="(user.key != '') ? user.key : 'Encryption key not set'" disabled readonly>
+    </fieldset>
+</form>

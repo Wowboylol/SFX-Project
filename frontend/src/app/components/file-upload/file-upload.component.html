@@ -1,0 +1,16 @@
+<h2>Upload File</h2>
+
+<input type="file" class="file-input" style="display: none" (change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+    <button id="select_btn" class="btn btn-secondary" (click)="fileUpload.click()">
+        Select File
+    </button>
+
+   {{fileName || "No file selected"}}
+</div>
+
+<button id="upload_btn" class="btn btn-warning" (click)="onSubmit()">
+    <i class="bi bi-upload"></i>
+    Upload
+</button>

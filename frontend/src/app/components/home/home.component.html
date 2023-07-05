@@ -1,0 +1,11 @@
+<div [ngClass]="profileClass">
+    <h2>Welcome {{this.userService.user.firstName}}</h2><br>
+    <p>Email: {{user.email}}</p>
+    <p>Name: {{user.firstName}} {{user.lastName}}</p>
+</div>
+
+<div [ngClass]="promptClass">
+    <a routerLink="../auth">Not Logged In</a><br>
+</div>
+
+<a routerLink="../profile">Profile</a><br>
