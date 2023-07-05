@@ -1,13 +1,3 @@
-## Checkpoint - Current Features:
-The application currently has login and registration features. At the moment, no front-end framework is used and html forms are used to make calls to our database. The login searches for an existing document in our Mongo database, while registering adds a document.
-
-Now that our server code can interact with the database, we will switch over to an Angular front-end to implement our next components and improve the UI of the application.
-
-Some features are being worked on but have not yet been connected together. These include the Angular front-end, database schemas for file storage, encyption and decryption programs.
-
-All the encryption utilities have been developed and are in the utils folder. These handle encrypting and decrypting files.
-
-
 ## Secure File Exchange System
 A web-based encrypted file exchange system is a powerful tool that enables users to securely transfer files between each other without worrying about potential data breaches or unauthorized access. This system uses advanced encryption techniques to ensure that data is protected at all times, and only authorized users can access it.
 
